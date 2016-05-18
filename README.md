@@ -1,4 +1,3 @@
-
 # Overview
 
 `Humix` is an open source robot connectivity and design framework that make it easy to 
