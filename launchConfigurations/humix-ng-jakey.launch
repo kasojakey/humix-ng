@@ -1,0 +1,16 @@
+{
+  "ServiceId": "com.ibm.cloudoe.orion.client.deploy",
+  "Params": {
+    "Target": {
+      "Url": "https://api.ng.bluemix.net",
+      "Org": "jakey",
+      "Space": "dev"
+    },
+    "Name": "humix-ng-jakey",
+    "Instrumentation": {
+      "host": "humix-ng-jakey"
+    }
+  },
+  "Path": "think/manifest.yml",
+  "Type": "Cloud Foundry"
+}
