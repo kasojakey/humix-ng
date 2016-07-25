@@ -9,8 +9,11 @@ applications:
   disk_quota: 1024M
   services:
   - Humix-Cloudant-Service
+  - Humix-Dialog-Service
   - Humix-Speech-Service
   - Humix-Conversation-Service
+  - Humix-NLC-Service
+  - Humix-TTS-Service
 
 # Add this back if you need Watson TTS service
 #  - Humix-TTS-Service
