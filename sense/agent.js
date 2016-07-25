@@ -9,7 +9,8 @@
  */
 'use strict';
 
-var log = require('logule').init(module, 'Agent'),
+var bunyan = require("bunyan"),
+    log = null,
     EventEmitter = require('events').EventEmitter,
     emitter = new EventEmitter,
     WebSocket = require('ws');
@@ -51,7 +52,7 @@ function registerModulesToThink(moduleList) {
 
 }
 
-function publish_syncResult(syncCmdId, message) { 
+function publish_syncResult(syncCmdId, message) {
     if (socket && socket.readyState === WebSocket.OPEN) {
         var event = {
             senseId: config.id,
@@ -68,6 +69,7 @@ function publish_syncResult(syncCmdId, message) {
     }
 
 }
+
 function publish(module, event, message) {
     if (socket && socket.readyState === WebSocket.OPEN) {
         var event = {
@@ -129,7 +131,7 @@ function connect(id) {
             if (error) {
                 log.error('Error occurred while publising senseid : %s, ERRMSG: %s', config.id, error);
             }
-        });        
+        });
 
     });
 
@@ -176,6 +178,7 @@ function init(thinkUrl, senseId, options) {
     config.url = url;
     config.id = senseId || undefined;
     config.options = options || {};
+    log = options.logger.child({component:'Agent'});
 }
 
 function start() {
